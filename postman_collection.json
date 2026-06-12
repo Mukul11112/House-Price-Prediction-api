@@ -1,0 +1,97 @@
+{
+  "info": {
+    "name": "House Price Prediction API",
+    "description": "Complete Postman collection for the House Price Prediction FastAPI application.\n\nBase URL: http://127.0.0.1:8000",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "house-price-api-v1"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://127.0.0.1:8000", "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "1. Root",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "{{base_url}}/", "host": ["{{base_url}}"], "path": [""] }
+      }
+    },
+    {
+      "name": "2. Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "{{base_url}}/health", "host": ["{{base_url}}"], "path": ["health"] }
+      }
+    },
+    {
+      "name": "3. Model Info",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "{{base_url}}/model/info", "host": ["{{base_url}}"], "path": ["model","info"] }
+      }
+    },
+    {
+      "name": "4. Predict Single House",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"overall_qual\": 7,\n  \"gr_liv_area\": 1800,\n  \"garage_cars\": 2,\n  \"total_bsmt_sf\": 1000,\n  \"full_bath\": 2,\n  \"year_built\": 2005\n}"
+        },
+        "url": { "raw": "{{base_url}}/predict", "host": ["{{base_url}}"], "path": ["predict"] }
+      }
+    },
+    {
+      "name": "5. Predict — Luxury House",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"overall_qual\": 10,\n  \"gr_liv_area\": 3500,\n  \"garage_cars\": 3,\n  \"total_bsmt_sf\": 2000,\n  \"full_bath\": 3,\n  \"year_built\": 2015\n}"
+        },
+        "url": { "raw": "{{base_url}}/predict", "host": ["{{base_url}}"], "path": ["predict"] }
+      }
+    },
+    {
+      "name": "6. Predict — Starter Home",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"overall_qual\": 4,\n  \"gr_liv_area\": 900,\n  \"garage_cars\": 1,\n  \"total_bsmt_sf\": 600,\n  \"full_bath\": 1,\n  \"year_built\": 1975\n}"
+        },
+        "url": { "raw": "{{base_url}}/predict", "host": ["{{base_url}}"], "path": ["predict"] }
+      }
+    },
+    {
+      "name": "7. Batch Prediction",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"houses\": [\n    {\"overall_qual\": 7, \"gr_liv_area\": 1800, \"garage_cars\": 2, \"total_bsmt_sf\": 1000, \"full_bath\": 2, \"year_built\": 2005},\n    {\"overall_qual\": 5, \"gr_liv_area\": 1200, \"garage_cars\": 1, \"total_bsmt_sf\": 800, \"full_bath\": 1, \"year_built\": 1990},\n    {\"overall_qual\": 9, \"gr_liv_area\": 2800, \"garage_cars\": 3, \"total_bsmt_sf\": 1500, \"full_bath\": 3, \"year_built\": 2010}\n  ]\n}"
+        },
+        "url": { "raw": "{{base_url}}/predict/batch", "host": ["{{base_url}}"], "path": ["predict","batch"] }
+      }
+    },
+    {
+      "name": "8. Validation Error (invalid input)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"overall_qual\": 15,\n  \"gr_liv_area\": -100,\n  \"garage_cars\": 2,\n  \"total_bsmt_sf\": 1000,\n  \"full_bath\": 2,\n  \"year_built\": 2005\n}"
+        },
+        "url": { "raw": "{{base_url}}/predict", "host": ["{{base_url}}"], "path": ["predict"] }
+      }
+    }
+  ]
+}

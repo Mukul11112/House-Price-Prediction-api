@@ -1,0 +1,64 @@
+{
+  "best_model": "LinearRegression",
+  "model_version": "1.0.0",
+  "all_results": {
+    "LinearRegression": {
+      "MAE": 6679.829681639599,
+      "MSE": 72298718.97462645,
+      "RMSE": 8502.865339085787,
+      "R2": 0.9258425125042974,
+      "TrainTime_s": 0.0,
+      "CV_R2_mean": 0.905,
+      "CV_R2_std": 0.0169
+    },
+    "RandomForest": {
+      "MAE": 9046.629158863901,
+      "MSE": 127995633.23061831,
+      "RMSE": 11313.515511573682,
+      "R2": 0.8687136548832171,
+      "TrainTime_s": 1.84,
+      "CV_R2_mean": 0.832,
+      "CV_R2_std": 0.0119
+    },
+    "GradientBoosting": {
+      "MAE": 7412.70395943752,
+      "MSE": 91054031.24261364,
+      "RMSE": 9542.22360053534,
+      "R2": 0.906605009340799,
+      "TrainTime_s": 1.58,
+      "CV_R2_mean": 0.8877,
+      "CV_R2_std": 0.0118
+    },
+    "XGBoost": {
+      "MAE": 7744.06982421875,
+      "MSE": 96928400.0,
+      "RMSE": 9845.222191499794,
+      "R2": 0.9005796313285828,
+      "TrainTime_s": 0.52,
+      "CV_R2_mean": 0.8808,
+      "CV_R2_std": 0.0103
+    }
+  },
+  "selected_features": [
+    "OverallQual",
+    "YearBuilt",
+    "YearRemodAdd",
+    "TotalBsmtSF",
+    "GrLivArea",
+    "FullBath",
+    "Fireplaces",
+    "GarageCars",
+    "GarageArea",
+    "WoodDeckSF",
+    "ExterQual",
+    "KitchenQual",
+    "HouseAge",
+    "RemodelAge",
+    "TotalSF",
+    "TotalBathrooms",
+    "HasGarage",
+    "HasFireplace",
+    "Neighborhood_OldTown",
+    "Neighborhood_Sawyer"
+  ]
+}
